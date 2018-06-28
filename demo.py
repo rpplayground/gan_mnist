@@ -234,10 +234,11 @@ _ = view_samples(-1, samples) # 显示最后一轮的outputs
 
 #显示生成过程
 # 指定要查看的轮次
-epoch_idx = [0, 5, 10, 20, 40, 60, 80, 100, 150, 250] # 一共300轮，不要越界
+epoch_idx = [0, 5, 10, 20, 40, 60, 80, 100, 150, 250] # 一共300轮，
 show_imgs = []
 for i in epoch_idx:
     show_imgs.append(samples[i][1])
+    plt.show()   #not sure
 
 # 指定图片形状
 rows, cols = 10, 25
@@ -250,7 +251,7 @@ for sample, ax_row in zip(show_imgs, axes):
         ax.imshow(img.reshape((28,28)), cmap='Greys_r')
         ax.xaxis.set_visible(False)
         ax.yaxis.set_visible(False)
-
+        plt.show()
 
 # 加载我们的生成器变量# 加载我们的生成
 saver = tf.train.Saver(var_list=g_vars)
